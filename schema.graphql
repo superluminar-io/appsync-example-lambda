@@ -1,0 +1,17 @@
+type Person {
+	id: Int!
+	name: String!
+	age: Int!
+	birthday: String!
+
+	friends: [Person!]!
+}
+
+type Query {
+	people: [Person!]!
+	person(id: Int): Person!
+}
+
+schema {
+	query: Query
+}
