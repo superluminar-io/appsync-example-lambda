@@ -6,12 +6,42 @@
 
 ## Usage
 
+### Deployment
+
 ```bash
 # Create S3 Bucket for CloudFormation Artifacts
-$ > AWS_PROFILE=your-profile-name make configure
+$ > AWS_PROFILE=your-profile-name \
+		make configure
 
 # Build, Package, and Deploy the CloudFormation Stack
-$ > AWS_PROFILE=your-profile-name make build package deploy
+$ > AWS_PROFILE=your-profile-name \
+		make build package deploy
+```
+
+### API Access
+
+```bash
+# Print GraphQL API Endoint
+$ > AWS_PROFILE=your-profile-name \
+		make outputs-GraphQL
+
+https://tdk6mhrty7ii.appsync-api.eu-central-1.amazonaws.com/graphql
+
+# Print AppSync API Key
+$ > AWS_PROFILE=your-profile-name \
+		make outputs-APIKey
+
+da2-1jdf4nmbwpsdr4vfxcxfza
+```
+
+### Example
+
+```bash
+$ > curl \
+    -XPOST https://tdk6mhrty7ii.appsync-api.eu-central-1.amazonaws.com/graphql \
+    -H "Content-Type:application/graphql" \
+    -H "x-api-key:da2-1jdf4nmbwpsdr4vfxcxfza" \
+    -d '{ "query": "query { people { name } }" }' | jq
 ```
 
 ## Schema

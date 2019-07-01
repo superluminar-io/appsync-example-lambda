@@ -51,3 +51,16 @@ deploy:
 		--parameter-overrides \
 			APIName=$(AWS_NAME) \
 			APIKeyExpiration=$(shell echo $$(( $(shell date +%s) + 25920000 )))
+
+describe:
+	@ aws cloudformation describe-stacks \
+		--profile $(AWS_PROFILE) \
+		--region $(AWS_REGION) \
+		--stack-name $(AWS_NAME) \
+			$(if $(value QUERY), --query "$(QUERY)",) \
+			$(if $(value FORMAT), --output "$(FORMAT)",)
+
+outputs-%:
+	@ QUERY="(Stacks[0].Outputs[?OutputKey=='$*'].OutputValue)[0]" \
+		FORMAT=text \
+		$(MAKE) describe
