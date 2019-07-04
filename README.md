@@ -1,8 +1,11 @@
 # AppSync Example w/ Lambda
 
 [![MIT License](https://badgen.now.sh/badge/License/MIT/blue)](http://github.com/superluminar-io/appsync-example-lambda/blob/master/LICENSE.md)
+[![Read Tutorial](https://badgen.now.sh/badge/Read/Tutorial/orange)](https://superluminar.io/2019/07/02/graphql-mit-appsync-und-lambda/)
 
-> Deploy a GraphQL API using AWS AppSync, Serverless Application Model, and AWS Lambda functions using Go.
+> Deploy a GraphQL API using AWS AppSync, Serverless Application Model, and AWS Lambda functions using Go. Read more about the implementation details in our [blog post about AppSync and GraphQL](https://superluminar.io/2019/07/02/graphql-mit-appsync-und-lambda/).
+
+
 
 
 ## Schema
